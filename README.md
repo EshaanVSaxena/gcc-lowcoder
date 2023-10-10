@@ -12,15 +12,15 @@
         - Choose a IP Range
         - Private Google Access: On
         - Flow Logs: Off
-        - In the subnet setting turn on Private Google Access (it is necessary to enable this setting otherwise the cloud run services will not be able to communicate with one another)
-            - This will be in the Edit subnet section is using a custom subnet creation mode
-            - If subnet creation mode is automatic then you will have to go to the region of your VPCnetwork and enable the Private Google Access setting from there once the VPCis created.
-
+        - In the subnet, setting turn on Private Google Access (it is necessary to enable this setting otherwise the cloud-run services will not be able to communicate with one another)
+            - This will be in the Edit subnet section using a custom subnet creation mode
+            - If the subnet creation mode is automatic, you will have to go to the region of your VPC network and enable the Private Google Access setting from there once the VPC is created.
+          
 ![VPC Network Setup.JPG](https://github.com/lmt-ventures/GCC-Lowcoder-Setup/blob/2cf8a390724968a9864b8c9967018d565502f89b/VPC%20Network%20Setup.JPG)
 
 ## Creating a Serverless VPC Access Connector
 1. In the VPC Network, create a Connector
-    - Enable serverless vpc access API
+    - Enable serverless VPC access API
 2. Create a Serverless VPC Connector
     - Name the Serverless VPC Connector
     - Choose the same region as the VPC Network
@@ -32,8 +32,8 @@
 ![Serverless VPC Access Connector Setup.JPG](https://github.com/lmt-ventures/GCC-Lowcoder-Setup/blob/8d4e5d17533415c6ec4ae800381be5836923b961/Serverless%20VPC%20Access%20Connector%20Setup.JPG)
 
 ##Creating a Cloud NAT
-- Creating a Cloud NAT is necessary because when connecting the lowcoder services to MongoDB, you must whitelist an IP address which can access the MongoDB cluster.
-    - Google Cloud services will use different IP addresses each time to communicate with the internet unless an Cloud NAT is set up on the VPC
+- Creating a Cloud NAT is necessary because when connecting the lowcoder services to MongoDB, you must whitelist an IP address that can access the MongoDB cluster.
+    - Google Cloud services will use different IP addresses each time to communicate with the internet unless a Cloud NAT is set up on the VPC
 1. Within the “Network Services” in the Google Cloud Console click on “Cloud NAT” and then “Create Cloud NAT gateway”
 2. Name the Cloud NAT gateway
 3. Set the NAT type to public
@@ -56,7 +56,7 @@
 ![Cloud NAT Setup.JPG](https://github.com/lmt-ventures/GCC-Lowcoder-Setup/blob/698541f903287406630f701a474c61d0916f097b/Cloud%20NAT%20Setup.JPG)
 
 ## Creating a Redis Instance
-1. Within Google Cloud Console in Memorystore, in the redis page, create a redis instance
+1. Within Google Cloud Console in Memorystore, on the Redis page, create a Redis instance
 2. Enable Google Cloud Memorystore for Redis API
 3. Create a Redis Instance:
     - Name Redis instance in the Instance ID
@@ -139,7 +139,7 @@
     - Variable 4: 
       - Name 4: ENABLE_USER_SIGN_UP
       - Value 4: TRUE
-            - If it is a new set up then set it to true, otherwise if it will be used for a existing set up then set it to FALSE
+            - If it is a new setup then set it to true; if it will be used for an existing setup then set it to FALSE
     - Variable 5: 
       - Name 5: ENCRYPTION_PASSWORD
       - Value 5: lowcoder.org
@@ -185,7 +185,7 @@
 4. Environment Variable: add any other environment variable as per your requirement (list of environment variables https://raw.githubusercontent.com/lowcoder-org/lowcoder/main/deploy/docker/docker-compose-multi.yaml)
     - Variable 1: 
       - Name 1: LOWCODER_API_SERVICE_URL
-      - Value 1: Paste the Api Service URL
+      - Value 1: Paste the API Service URL
     - Variable 2: 
       - Name 2: LOWCODER_NODE_SERVICE_URL
       - Value 2: Paste the Node Service URL
@@ -202,5 +202,5 @@
 ![Frontend Service Networking Settings.JPG](https://github.com/lmt-ventures/GCC-Lowcoder-Setup/blob/816341197861acb84a3f41762d67059e6c1030c0/Frontend%20Service%20Networking%20Settings.JPG)
 
 ### Post Deployment Settings
-- Can set up a DNS through Google Domains 
+- Can set up a DNS for the front URL through Google Domains
 
